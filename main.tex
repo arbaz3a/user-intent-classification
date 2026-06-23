@@ -19,13 +19,12 @@
     
     \vspace{3cm}
     
-    {\Large \textbf{Submitted To:} Mam Iqra Javed \par}
+    {\Large \textbf{Submitted To:} Sir Qamar Abbas Arbie\par}
     
     \vspace{2cm}
     
     {\Large \textbf{Submitted By:} \par}
     \vspace{0.5cm}
-    {\large Aimal Abbas (F20232661098) \par}
     {\large Arbaz Shoukat (F20232661060) \par}
     {\large Moiz Safdar (F20232661072) \par}
     
@@ -472,7 +471,7 @@ We must explain why the Support Vector Machine performed incredibly well and was
 
 We must also explain why the Logistic Regression model performed so incredibly close to the Support Vector Machine. Logistic Regression is a highly optimized linear model that uses probability functions instead of hard margins. In text classification tasks, the relationship between specific words and categories is often highly linear. For instance, the word refund is linearly linked to the refund category. Logistic regression captures these straightforward relationships perfectly, which is why it performed almost exactly as well as the more complex Support Vector Machine. 
 
-We must explain exactly why the Decision Tree model performed worst out of the three. Decision Trees attempt to slice the feature space into square boxes based on simple logical thresholds. In a massive five thousand dimensional space, slicing data into simple boxes is incredibly inefficient and highly prone to catastrophic overfitting. Even after severely limiting its maximum depth to artificially fix the overfitting issue, its overall accuracy remained noticeably lower than the other two superior linear models. 
+We must explain exactly why the Decision Tree model performed worst out of the three. Decision Trees attempt to slice the feature space into square boxes based on simple logical thresholds. In a massive five thousand dimensional space, slicing data into simple boxes is incredibly inefficient and highly prone to catastrophic overfitting. Even after we ran an educational depth experiment to demonstrate underfitting at depth ten, the Decision Tree accuracy at its original depth of fifty remained noticeably lower than the other two superior linear models, confirming that tree based models struggle in high dimensional text spaces regardless of depth settings. 
 
 We must discuss exactly what the confusion matrix reveals about the common errors made by the best model. The confusion matrix for our best model showed incredibly strong performance across almost all twenty seven intent classes. However, it revealed that the model occasionally got confused between highly similar categories. For instance, it sometimes confused a Request a Refund message with a Cancel Order message. This makes perfect logical sense because customers often use the exact same angry words when asking for both actions. 
 
