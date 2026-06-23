@@ -143,8 +143,8 @@ def predict_intent(message):
         decision_scores = model.decision_function(message_vector)[0]
         probabilities = softmax(decision_scores)
         confidence = float(np.max(probabilities))
-        print(decision_scores)
-        print(probabilities)
+        # print(decision_scores)
+        # print(probabilities)
         print(f"[predict.py] Using decision_function + softmax — confidence: {confidence:.4f}")
     else:
         # Fallback: no confidence available
