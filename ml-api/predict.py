@@ -139,13 +139,15 @@ def predict_intent(message):
         confidence = float(np.max(proba))
         print(f"[predict.py] Using predict_proba — confidence: {confidence:.4f}")
     elif hasattr(model, 'decision_function'):
-        # LinearSVC uses decision_function — normalize with softmax
         decision_scores = model.decision_function(message_vector)[0]
-        probabilities = softmax(decision_scores)
-        confidence = float(np.max(probabilities))
+    
+        # Margin based confidence — better than softmax for LinearSVC
+        sorted_scores = np.sort(decision_scores)[::-1]
+        margin = sorted_scores[0] - sorted_scores[1]
+        confidence = float(1 / (1 + np.exp(-margin * 2))) 
         # print(decision_scores)
         # print(probabilities)
-        print(f"[predict.py] Using decision_function + softmax — confidence: {confidence:.4f}")
+        print(f"[predict.py] Margin: {margin:.4f} — confidence: {confidence:.4f}")
     else:
         # Fallback: no confidence available
         confidence = 1.0
